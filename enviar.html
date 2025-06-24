@@ -1,44 +1,426 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Enviar SMS | API SMS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>API SMSSMILY</title>
+    <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script type="text/javascript">document.addEventListener("DOMContentLoaded", function () {
+    let currentUrl = window.location.pathname.split("/").pop(); // Obtém o nome da página atual
+
+    document.querySelectorAll(".sidebar-link").forEach(function (link) {
+        let linkHref = link.getAttribute("href");
+
+        if (currentUrl === linkHref) {
+            link.classList.add("active"); // Adiciona classe ativa no link
+
+            let submenu = link.closest("ul.collapse"); // Procura se o link está dentro de um submenu
+            if (submenu) {
+                submenu.classList.add("show"); // Expande o submenu
+                let parentItem = submenu.closest(".sidebar-item").querySelector
+</script>
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <nav class="bg-white shadow mb-6 p-4 flex justify-between items-center">
-        <div class="font-bold text-xl">API SMS Dashboard</div>
-        <div>
-            <a href="index.html" class="px-3 hover:underline">Dashboard</a>
-            <a href="enviar.html" class="px-3 hover:underline font-semibold text-blue-700">Enviar SMS</a>
-            <a href="relatorios.html" class="px-3 hover:underline">Relatórios</a>
-            <a href="creditos.html" class="px-3 hover:underline">Créditos</a>
-            <a href="configuracoes.html" class="px-3 hover:underline">Configurações</a>
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+
+        <!-- Importando menu -->
+            <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="" class="text-nowrap logo-img">
+            <img src="https://www.swiftsmsgateway.com/wp-content/uploads/2016/01/api-sms.png" width="180" alt="" />
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
         </div>
-    </nav>
-    <main class="container mx-auto px-4">
-        <h1 class="text-2xl font-bold mb-4">Enviar SMS</h1>
-        <form class="bg-white p-6 rounded shadow space-y-4 max-w-lg mx-auto">
-            <div>
-                <label class="block font-semibold" for="numero">Número do Destinatário</label>
-                <input class="border rounded p-2 w-full" type="tel" id="numero" name="numero" placeholder="(99) 99999-9999" required>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="home" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Pagina incial</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="enviar-mensagem" aria-expanded="true">
+                <span>
+                  <i class="ti ti-send"></i>
+                </span>
+                <span class="hide-menu">Enviar Mensagem</span>
+              </a>
+            </li>      
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="relatorios-sms" aria-expanded="true">
+                <span>
+                  <i class="ti ti-list"></i>
+                </span>
+                <span class="hide-menu">Relatórios de SMS</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="relatorios-creditos" aria-expanded="true">
+                <span>
+                  <i class="ti ti-list"></i>
+                </span>
+                <span class="hide-menu">Relatórios de Créditos</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="https://app.notrevetech.com.br/index.php?rp=/store/apis-de-sms" target="_blank" aria-expanded="true">
+                <span>
+                  <i class="ti ti-file-invoice"></i>
+                </span>
+                <span class="hide-menu">Adicionar Créditos</span>
+              </a>
+            </li> 
+            <li class="sidebar-item">
+              <a class="sidebar-link" target="_blank" href="https://encurtador.com.br/cinu8" aria-expanded="true">
+                <span>
+                  <i class="ti ti-code"></i>
+                </span>
+                <span class="hide-menu">Documentação</span>
+              </a>
+            </li> 
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="minha-conta" aria-expanded="true">
+                <span>
+                  <i class="ti ti-user fs-6"></i>
+                </span>
+                <span class="hide-menu">Minha Conta</span>
+              </a>
+            </li>
+                          <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Administração</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="gestao-usuarios" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user fs-6"></i>
+                </span>
+                <span class="hide-menu">Gestão de Clientes</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="gestao-financeira" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-invoice"></i>
+                </span>
+                <span class="hide-menu">Gestão Financeira</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="gestao-relatorios-sms" aria-expanded="false">
+                <span>
+                  <i class="ti ti-list"></i>
+                </span>
+                <span class="hide-menu">Gestão de Mensagens</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="gestao-relatorios-creditos" aria-expanded="false">
+                <span>
+                  <i class="ti ti-list"></i>
+                </span>
+                <span class="hide-menu">Gestão de Créditos</span>
+              </a>
+            </li>
+              
+                         
+          <!--<li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">UI COMPONENTS</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Buttons</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-alert-circle"></i>
+                </span>
+                <span class="hide-menu">Alerts</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-cards"></i>
+                </span>
+                <span class="hide-menu">Card</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Forms</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-typography"></i>
+                </span>
+                <span class="hide-menu">Typography</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">AUTH</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-login"></i>
+                </span>
+                <span class="hide-menu">Login</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user-plus"></i>
+                </span>
+                <span class="hide-menu">Register</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">EXTRA</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-mood-happy"></i>
+                </span>
+                <span class="hide-menu">Icons</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-aperture"></i>
+                </span>
+                <span class="hide-menu">Sample Page</span>
+              </a>
+            </li>
+          </ul>
+          <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
+            <div class="d-flex">
+              <div class="unlimited-access-title me-3">
+                <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">SUPORTE - API SMS</h6>
+                <a href="https://wa.me/558005917829" target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">WhatsApp</a>
+              </div>
+              <div class="unlimited-access-img">
+                <img src="assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
+              </div>
             </div>
-            <div>
-                <label class="block font-semibold" for="mensagem">Mensagem</label>
-                <textarea class="border rounded p-2 w-full" id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem" maxlength="160" required></textarea>
-                <p class="text-sm text-gray-500 mt-1">Limite: 160 caracteres</p>
+          </div>-->
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+        <!-- Main wrapper -->
+        <div class="body-wrapper">
+            <!-- Header Start -->
+            <header class="app-header">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <ul class="navbar-nav">
+                        <li class="nav-item d-block d-xl-none">
+                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                                <i class="ti ti-menu-2"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                                <i class="ti ti-bell-ringing"></i>
+                                <div class="notification bg-primary rounded-circle"></div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+                        <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+                            <div class="container-fluid">
+                                <!-- Contêiner de produtos -->
+                                <div class="product-container" style="display: flex; align-items: center; gap: 20px;">
+                                    <!-- Mensagem de introdução -->
+                                    <span style="font-size: 18px; font-weight: bold;">Conheça nossos produtos</span>
+
+                                    <!-- API WhatsApp -->
+                                    <a href="https://apizap.me" target="_blank" class="btn" style="background: linear-gradient(45deg, #25D366, #128C7E); color: white; padding: 10px;">
+                                        <i class="fab fa-whatsapp"></i>
+                                        <span>API WhatsApp</span>
+                                        <i class="fas fa-arrow-right arrow"></i>
+                                    </a>
+
+                                    <!-- Servidores e VPS -->
+                                    <a href="https://notrevecloud.com.br" target="_blank" class="btn" style="background: linear-gradient(45deg, #00aaff, #0077cc); color: white; padding: 10px;">
+                                        <i class="fas fa-server"></i>
+                                        <span>Servidores e VPS</span>
+                                        <i class="fas fa-arrow-right arrow"></i>
+                                    </a>
+
+                                    <!-- Notreve Pagamentos -->
+                                    <a href="https://notrevepay.com.br" target="_blank" class="btn" style="background: linear-gradient(45deg, #FF8C00, #FF5722); color: white; padding: 10px;">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Notreve Pagamentos</span>
+                                        <i class="fas fa-arrow-right arrow"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                                    <div class="message-body">
+                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                            <i class="ti ti-user fs-6"></i>
+                                            <p class="mb-0 fs-3">NOTREVE TECNOLOGIA</p>
+                                        </a>
+                                        <a href="minha-conta" class="d-flex align-items-center gap-2 dropdown-item">
+                                            <i class="ti ti-settings fs-6"></i>
+                                            <p class="mb-0 fs-3">Minha Conta</p>
+                                        </a>
+                                        <a href="config/functions/logout" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+      <div class="card shadow-lg">
+        <div class="card-body p-5">
+          <h3 class="text-center fw-bold mb-4">Envio de SMS</h3>
+          
+          
+          
+          <form id="enviar-mensagem" action="config/functions/enviar-mensagem.php" method="POST">
+            <input type="hidden" name="token_sms" value="42af66449103055493aeaac7f9d6b1568095f04e">
+            <input type="hidden" name="id_usuario" value="1">
+            <input type="hidden" name="credito_sms" value="79663">
+
+            <!-- Modo de Envio -->
+            <div class="mb-4">
+              <label for="modo_envio" class="form-label fw-semibold">Modo de Envio:</label>
+              <select class="form-control" id="modo_envio" name="modo_envio">
+                <option value="unico">Único (1 número)</option>
+                <option value="campanha">Campanha (Vários números)</option>
+              </select>
+              <small class="text-muted">Escolha entre enviar para um único número ou uma campanha de múltiplos números.</small>
             </div>
-            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Enviar</button>
-        </form>
-        <script>
-            // Exemplo de mensagem de envio (só front-end, sem backend)
-            document.querySelector('form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('SMS enviado com sucesso (simulação).');
-                this.reset();
-            });
-        </script>
-    </main>
+
+            <!-- Formulário Único -->
+            <div id="unico-form">
+              <div class="mb-3">
+                <label for="celular" class="form-label fw-semibold">Número de Celular:</label>
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Ex: 551199263xxxx">
+                <small class="text-muted">Formato: 55 + DDD + Número (sem espaços ou caracteres especiais).</small>
+              </div>
+            </div>
+
+            <!-- Formulário Campanha -->
+            <div id="campanha-form" class="d-none">
+              <div class="mb-3">
+                <label for="lista_contatos" class="form-label fw-semibold">Lista de Contatos:</label>
+                <textarea class="form-control" id="lista_contatos" name="lista_contatos" rows="4" placeholder="Exemplo: 551199263xxxx,551198765xxxx,551191234xxxx"></textarea>
+                <small class="text-muted">Insira os números separados por vírgula ou um por linha (LIMITE DE 50 NÚMEROS POR VEZ).</small>
+              </div>
+            </div>
+
+            <!-- Mensagem -->
+            <div class="mb-3">
+              <label for="mensagem" class="form-label fw-semibold">Mensagem:</label>
+              <textarea class="form-control" id="mensagem" name="mensagem" maxlength="160" rows="3"></textarea>
+              <small class="text-muted">Máximo de 160 caracteres. Evite acentos e caracteres especiais.</small>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary px-4">Enviar Mensagem</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modoEnvio = document.getElementById('modo_envio');
+  const unicoForm = document.getElementById('unico-form');
+  const campanhaForm = document.getElementById('campanha-form');
+
+  modoEnvio.addEventListener('change', function() {
+    if (modoEnvio.value === 'unico') {
+      unicoForm.classList.remove('d-none');
+      campanhaForm.classList.add('d-none');
+    } else {
+      campanhaForm.classList.remove('d-none');
+      unicoForm.classList.add('d-none');
+    }
+  });
+</script>
+
+<div class="col text-center">
+    <!-- Copyright e Ano Atual -->
+    <div class="mb-3">
+        <p class="text-muted mb-0">Copyright &copy; 2025 | Todos os direitos reservados.</p>
+    </div>
+
+    <!-- Informações da Empresa -->
+    <div>
+        <p class="text-muted mb-0"><strong>API SMS</strong> - Uma solução <strong>NOTREVE TECNOLOGIA</strong> | CNPJ: <strong>51.648.031/0001-94</strong></p>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/sidebarmenu.js"></script>
+<script src="assets/js/app.min.js"></script>
+<script src="assets/libs/simplebar/dist/simplebar.js"></script>
+<script src="assets/js/dashboard.js"></script>
+
+<!-- Page level plugins -->
+<script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="assets/js/demo/datatables-demo.js"></script>
 </body>
 </html>
