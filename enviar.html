@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar SMS | API SMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <nav class="bg-white shadow mb-6 p-4 flex justify-between items-center">
+        <div class="font-bold text-xl">API SMS Dashboard</div>
+        <div>
+            <a href="index.html" class="px-3 hover:underline">Dashboard</a>
+            <a href="enviar.html" class="px-3 hover:underline font-semibold text-blue-700">Enviar SMS</a>
+            <a href="relatorios.html" class="px-3 hover:underline">Relatórios</a>
+            <a href="creditos.html" class="px-3 hover:underline">Créditos</a>
+            <a href="configuracoes.html" class="px-3 hover:underline">Configurações</a>
+        </div>
+    </nav>
+    <main class="container mx-auto px-4">
+        <h1 class="text-2xl font-bold mb-4">Enviar SMS</h1>
+        <form class="bg-white p-6 rounded shadow space-y-4 max-w-lg mx-auto">
+            <div>
+                <label class="block font-semibold" for="numero">Número do Destinatário</label>
+                <input class="border rounded p-2 w-full" type="tel" id="numero" name="numero" placeholder="(99) 99999-9999" required>
+            </div>
+            <div>
+                <label class="block font-semibold" for="mensagem">Mensagem</label>
+                <textarea class="border rounded p-2 w-full" id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem" maxlength="160" required></textarea>
+                <p class="text-sm text-gray-500 mt-1">Limite: 160 caracteres</p>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Enviar</button>
+        </form>
+        <script>
+            // Exemplo de mensagem de envio (só front-end, sem backend)
+            document.querySelector('form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('SMS enviado com sucesso (simulação).');
+                this.reset();
+            });
+        </script>
+    </main>
+</body>
+</html>

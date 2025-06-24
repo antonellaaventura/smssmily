@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatórios | API SMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <nav class="bg-white shadow mb-6 p-4 flex justify-between items-center">
+        <div class="font-bold text-xl">API SMS Dashboard</div>
+        <div>
+            <a href="index.html" class="px-3 hover:underline">Dashboard</a>
+            <a href="enviar.html" class="px-3 hover:underline">Enviar SMS</a>
+            <a href="relatorios.html" class="px-3 hover:underline font-semibold text-blue-700">Relatórios</a>
+            <a href="creditos.html" class="px-3 hover:underline">Créditos</a>
+            <a href="configuracoes.html" class="px-3 hover:underline">Configurações</a>
+        </div>
+    </nav>
+    <main class="container mx-auto px-4">
+        <h1 class="text-2xl font-bold mb-4">Relatórios de Envio</h1>
+        <section class="bg-white p-6 rounded shadow">
+            <p class="mb-4">Veja abaixo exemplos de relatórios de envios recentes:</p>
+            <table class="w-full text-left border">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="py-2 px-3">Data</th>
+                        <th class="py-2 px-3">Destinatário</th>
+                        <th class="py-2 px-3">Mensagem</th>
+                        <th class="py-2 px-3">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="py-2 px-3">24/06/2025 14:30</td>
+                        <td class="py-2 px-3">(11) 91234-5678</td>
+                        <td class="py-2 px-3">Olá, seu código é 1234</td>
+                        <td class="py-2 px-3"><span class="text-green-600">Enviado</span></td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-3">23/06/2025 09:12</td>
+                        <td class="py-2 px-3">(21) 98765-4321</td>
+                        <td class="py-2 px-3">Promoção exclusiva para você!</td>
+                        <td class="py-2 px-3"><span class="text-green-600">Enviado</span></td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-3">22/06/2025 18:42</td>
+                        <td class="py-2 px-3">(31) 93456-7890</td>
+                        <td class="py-2 px-3">Lembrete: consulta amanhã às 10h</td>
+                        <td class="py-2 px-3"><span class="text-red-600">Falha</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="mt-4 text-gray-500 text-sm">* Dados fictícios para demonstração.</p>
+        </section>
+    </main>
+</body>
+</html>
